@@ -17,8 +17,8 @@ try {
 } catch {}
 
 const MONGODB_URI = process.env.MONGODB_URI!;
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "admin@example.com";
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "changeme123";
+const ADMIN_EMAIL = "rakibkhanshamim790@gmail.com";
+const ADMIN_PASSWORD = "Rs742646#";
 
 const img = (id: number, w = 800, h = 450) => `https://picsum.photos/id/${id}/${w}/${h}`;
 const now = new Date();

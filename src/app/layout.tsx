@@ -19,7 +19,12 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: { default: "Md Shamim Mia — JavaScript Developer", template: "%s | Md Shamim Mia" },
   description: "Full-stack JavaScript developer building modern web applications with React & Next.js.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(
+    (() => {
+      const url = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+      return url.startsWith("http") ? url : `https://${url}`;
+    })(),
+  ),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

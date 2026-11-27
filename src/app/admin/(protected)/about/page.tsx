@@ -16,7 +16,16 @@ export default function AdminAboutPage() {
   const [biography, setBiography] = useState("");
 
   useEffect(() => {
-    fetch("/api/about").then((r) => r.json()).then((j) => { if (j.success) { setData(j.data); setBiography(j.data.biography ?? ""); } setLoading(false); });
+    fetch("/api/about")
+      .then((r) => r.json())
+      .then((j) => {
+        if (j.success && j.data) {
+          setData(j.data);
+          setBiography(j.data.biography ?? "");
+        }
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
   }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
